@@ -45,6 +45,7 @@ From the data description section, we can see that there are two categorical var
 
 ## Exploring Data 
 <details>
+  <summary>Click to expand</summary>
 
 ### Correlation Heatmap of the Variables.
 
@@ -101,4 +102,5 @@ The shape of the distribution could be somewhat bell-shaped with a peak in the m
 2. Home Ownership Status: The home ownership status graph might show a higher frequency for "MORTGAGE" and "RENT," as these are common living situations. The frequency for "OWN" might be lower, reflecting the smaller proportion of individuals who own their homes outright without a mortgage.
 
 3. Income Source Verification and Income Verification: Those two graphs show that most applicants do not have their income source and income verified.
-<\details>
+
+</details>
