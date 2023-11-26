@@ -49,10 +49,55 @@ From the data description section, we can see that there are two categorical var
 
 ### Exploring Data 
 
-#### Correlation heatmap of the variables.
+#### Correlation Heatmap of the Variables.
 
 ![Image](https://raw.githubusercontent.com/Joseph-Paleologus/Machine-Learning-LendingClub/main/Data%20description/image.png)
+From the map we can observe that:
+1. Loan_term appears to have a moderate positive correlation with loan_rate, indicated by a coefficient value of 0.45. This suggests that as the term of the loan increases, the loan rate tends to be higher.
 
+2. FICO score shows a negative correlation with loan_rate, with a coefficient of -0.41. This indicates that higher FICO scores, which suggest better creditworthiness, are associated with lower loan rates.
 
-![Image](https://raw.githubusercontent.com/Joseph-Paleologus/Machine-Learning-LendingClub/main/Data%20description/FICO%20Frequency.png)
+3. Revol_util (revolving line utilization rate) has a positive correlation with loan_rate at a value of 0.25, suggesting that higher utilization rates of available credit may lead to higher loan rates.
 
+4. Debt_income (debt-to-income ratio) and Income_thou (income in thousands) have weaker positive correlations with loan_rate, with coefficients of 0.15 and 0.13, respectively, implying a less pronounced relationship with the loan rate.
+
+Other variables, such as Loan_amt (loan amount), Income_source_verified, and Open_acc (number of open credit lines), show very weak correlations with loan_rate, as indicated by coefficients close to 0.
+
+#### Frequency Plot of FICO Score
+![Image](https://raw.githubusercontent.com/Joseph-Paleologus/Machine-Learning-LendingClub/main/Data%20description/FICO.png)
+The minimum FICO score for applicants who are granted the loans is 662, showing that there is a minimum FICO requirement for applicants to receive the loans.
+
+The highest frequency occurs in the lower FICO score intervals, starting with the 660 range. This suggests that a larger number of individuals in the dataset have lower FICO scores.
+
+As the FICO score increases, the frequency of individuals within those intervals decreases. This implies that fewer individuals have higher FICO scores.
+
+The distribution appears to be right-skewed, meaning there is a longer tail towards the higher end of the FICO score spectrum. This skewness indicates that while most of the scores are concentrated on the lower end, there are still some individuals with very high credit scores, but they are less common.
+
+#### Frequency Plot of Loan Amount
+![Image] (https://raw.githubusercontent.com/Joseph-Paleologus/Machine-Learning-LendingClub/main/Data%20description/Loan_amt.png)
+There is a relatively high frequency of loans in the lower loan amount ranges, starting from 0 up to around 15000. This suggests that most individuals in the dataset are taking out smaller loans.
+
+The highest frequency of loans seems to occur in the 10000 to 15000 range, indicating that this loan amount range is the most common among the dataset's individuals.
+
+As the loan amount increases beyond the peak range (15000), the frequency of loans gradually decreases, which means that larger loans are less common in this dataset.
+
+The distribution may have multiple modes (peaks), as there seem to be several intervals with high frequencies, which suggests that certain loan amounts are particularly common, potentially due to common financing needs or lending products offered.
+
+Overall, the distribution of loan amounts in this dataset is multimodal and shows that smaller loans are more frequently taken out than larger ones, with particular loan amounts appearing to be more popular than others. 
+
+#### Frequency Plot of Log Income
+Because the data has a long-tail effect, we log-transform it.
+![Image](https://raw.githubusercontent.com/Joseph-Paleologus/Machine-Learning-LendingClub/main/Data%20description/log_inc.png)
+A peak in the distribution, which seems to occur around the 4.5 to 5.0 log income value, indicates that the majority of incomes in the dataset cluster around 31622 ($10 ^{4.5}$) to 100000 ($10 ^{5}$).
+
+The bars at the lower and higher ends of the spectrum have lower counts, suggesting fewer individuals with very low or very high incomes, relative to the central peak.
+
+The shape of the distribution could be somewhat bell-shaped with a peak in the middle, indicating that the underlying income distribution, before the log transformation, is right-skewed, which is typical for income data where a large number of people earn moderate incomes and fewer people earn extremely high incomes.
+
+#### Frequency Table of Categorical Variables
+![Image](https://raw.githubusercontent.com/Joseph-Paleologus/Machine-Learning-LendingClub/main/Data%20description/categorical.png)
+1. Empolyment Length: Generally, the number of loan applicants shows a decreasing pattern as employment length increases. However, the data does not distinguish employment length after 10 years, so we can observe there is a large amount of applicants with 10+ years working experience.
+
+2. Home Ownership Status: The home ownership status graph might show a higher frequency for "MORTGAGE" and "RENT," as these are common living situations. The frequency for "OWN" might be lower, reflecting the smaller proportion of individuals who own their homes outright without a mortgage.
+
+3. Income Source Verification and Income Verification: Those two graphs show that most applicants do not have their income source and income verified.
