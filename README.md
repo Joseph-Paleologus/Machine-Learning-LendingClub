@@ -51,4 +51,4 @@ From the data description section, we can see that there are two categorical var
 
 #### Correlation heatmap of the variables.
 
-![Image]([https://miro.medium.com/v2/resize:fit:1176/format:webp/1*5o6x9IUFI4U7j0EeZuUraA.](https://raw.githubusercontent.com/Joseph-Paleologus/Machine-Learning-LendingClub/main/Data%20description/image.png)https://raw.githubusercontent.com/Joseph-Paleologus/Machine-Learning-LendingClub/main/Data%20description/image.png)
+![Image](https://raw.githubusercontent.com/Joseph-Paleologus/Machine-Learning-LendingClub/main/Data%20description/image.png)https://raw.githubusercontent.com/Joseph-Paleologus/Machine-Learning-LendingClub/main/Data%20description/image.png)
