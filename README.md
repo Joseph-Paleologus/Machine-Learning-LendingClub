@@ -44,6 +44,7 @@ This approach has significant benefits compared to traditional methods. It can r
 From the data description section, we can see that there are two categorical variables, "Home" and "Employment length." To incorporate them into our regression model, we transform them into dummies. The 'Home' variable has three possible values: 'MORTGAGE,' 'OWN,' and 'RENT.'  To avoid multicollinearity, we only keep 'MORTGAGE' and 'RENT" in our dataset. Similarly, for 'Employment length,' we dropped 'emp_length_<1 year' for the same reason.
 
 ## Exploring Data 
+<details>
 
 ### Correlation Heatmap of the Variables.
 
@@ -100,3 +101,4 @@ The shape of the distribution could be somewhat bell-shaped with a peak in the m
 2. Home Ownership Status: The home ownership status graph might show a higher frequency for "MORTGAGE" and "RENT," as these are common living situations. The frequency for "OWN" might be lower, reflecting the smaller proportion of individuals who own their homes outright without a mortgage.
 
 3. Income Source Verification and Income Verification: Those two graphs show that most applicants do not have their income source and income verified.
+<\details>
