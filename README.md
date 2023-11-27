@@ -104,3 +104,22 @@ The shape of the distribution could be somewhat bell-shaped with a peak in the m
 3. Income Source Verification and Income Verification: Those two graphs show that most applicants do not have their income source and income verified.
 
 </details>
+
+## Model Setups
+
+All the codes in this project are executed under Python 3.8+ environment.
+
+### Parametric Models
+The parametric models are the most simple and intuitive way of modelling the loan rate. However, since some of the predictor variables show small correlation with the response, incorporating those predictors in our model will be problematic for an accurate, consistent prediction. Therefore, we introduce some methods for variable selection.
+
+#### Subset
+
+
+
+#### PCR
+PCR is useful for variable selection as it reduces the dimensionality of the data by selecting a few principal components, which are linear combinations of the original variables, thus simplifying the model without significantly losing information. It combines Principal Component Analysis (PCA) and regression and is useful for handling multicollinearity in regression models. 
+
+#### PLS
+Like Principal Component Regression (PCR), PLS reduces the dimensionality of data but focuses more on predicting a dependent variable by finding the multidimensional direction in the independent variables space that explains the maximum multidimensional variance of the dependent variable. It not only reduces the number of variables but also maintains the ones most relevant for predicting the dependent variable, thereby often providing better model performance and interpretability in most of the cases.
+
+
