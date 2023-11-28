@@ -107,19 +107,32 @@ The shape of the distribution could be somewhat bell-shaped with a peak in the m
 
 ## Model Setups
 
-All the codes in this project are executed under Python 3.8+ environment.
+All the codes in this project are executed under a Python 3.8+ environment. Our computing environment is MacBook Pro 2021 with M1 Max Chip and 32 GB memory. We expect less sophisticated computer systems will take more time to run the models.
 
 ### Parametric Models
-The parametric models are the most simple and intuitive way of modelling the loan rate. However, since some of the predictor variables show small correlation with the response, incorporating those predictors in our model will be problematic for an accurate, consistent prediction. Therefore, we introduce some methods for variable selection.
+Parametric models are the simplest and most intuitive way of modeling the loan rate. However, since some of the predictor variables show small correlations with the response, incorporating those predictors in our model will be problematic for an accurate, consistent prediction. Therefore, we introduce some methods for variable selection and dimensional reduction.
 
-#### Subset
+#### Forward Selection
+Forward Selection is a stepwise approach in model building where predictors are added one at a time to a regression model, starting with the variable most strongly associated with the response variable. At each step, the variable that provides the greatest additional improvement to the model fit is included until no more significant variables are found, or a specified criterion is met. For our dataset with many predictors, this method could be computationally more convenient than traditional subset selection methods. 
 
-
+#### Backward Selection
+Backward Selection is also a stepwise approach in modeling where all potential predictors are initially included, and then the least significant variables are removed one by one. This process continues until only variables that contribute significantly to the model's predictive power remain, ensuring a more parsimonious and potentially more interpretable model.
 
 #### PCR
 PCR is useful for variable selection as it reduces the dimensionality of the data by selecting a few principal components, which are linear combinations of the original variables, thus simplifying the model without significantly losing information. It combines Principal Component Analysis (PCA) and regression and is useful for handling multicollinearity in regression models. 
 
 #### PLS
-Like Principal Component Regression (PCR), PLS reduces the dimensionality of data but focuses more on predicting a dependent variable by finding the multidimensional direction in the independent variables space that explains the maximum multidimensional variance of the dependent variable. It not only reduces the number of variables but also maintains the ones most relevant for predicting the dependent variable, thereby often providing better model performance and interpretability in most of the cases.
+Like Principal Component Regression (PCR), PLS reduces the dimensionality of data but focuses more on predicting a dependent variable by finding the multidimensional direction in the space of the independent variables that explains the maximum multidimensional variance of the dependent variable. It not only reduces the number of variables but also maintains the ones most relevant for predicting the dependent variable.
+
+### Regularization
+To reduce the probability of overfitting, we introduce regularization methods:
+
+#### Ridge Regression
+Ridge regression is a technique used to analyze multiple regression data that suffer from overfitting. It reduces the standard error by adding a bias parameter in the estimates of the regression and shrinking large parameters to avoid overfitting issues.
+
+#### Lasso (Least Absolute Shrinkage and Selection Operator) Regression
+Lasso regression is a type of linear regression that uses shrinkage: it applies a penalty to the absolute size of the regression coefficients. This method not only helps in variable selection by shrinking less important coefficients to zero but also improves the prediction accuracy and interpretability of the statistical model.
+
+
 
 
