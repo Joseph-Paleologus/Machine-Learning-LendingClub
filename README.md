@@ -133,6 +133,11 @@ Ridge regression is a technique used to analyze multiple regression data that su
 #### Lasso (Least Absolute Shrinkage and Selection Operator) Regression
 Lasso regression is a type of linear regression that uses shrinkage: it applies a penalty to the absolute size of the regression coefficients. This method not only helps in variable selection by shrinking less important coefficients to zero but also improves the prediction accuracy and interpretability of the statistical model.
 
+### Non-Parametric Model
+The models listed so far, though variegated in their specific implementation, only capture linear relations between predictors and the response variable. However, we are not confident that the predictor variables have linear relationships with the response variable. If we want to catch non-linear relationship between those variables, we should also include some non-parametric methods:
 
+#### KNN (K-Nearest Neighbors)
+The KNN method predicts the outcome for a new data point by analyzing the K closest data points (neighbors) from the training set. It's based on the principle that similar data points tend to have similar outcomes, making it a popular choice for its ease of understanding and implementation, especially in scenarios where relationships between variables are complex or unknown.
 
-
+#### Decision Tree and Random Forest
+A Decision Tree is a flowchart-like tree structure where each internal node represents a test on an attribute, each branch represents the outcome of the test, and each leaf node represents a class label or regression value, used for making predictions based on simple decision rules. A Random Forest, on the other hand, is an ensemble learning method that operates by constructing multiple decision trees during training and outputting the class that is the mean prediction (regression) of the individual trees, offering improved accuracy and robustness over a single decision tree.
