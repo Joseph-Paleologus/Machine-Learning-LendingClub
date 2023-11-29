@@ -31,7 +31,7 @@ Our primary research objective is to use the LendingClub dataset to develop a pr
 | loan_rate         | Interest rate of the loan (Our Research target) | Numeric   |
 
 
-## 1.Motivation and Problem
+## Motivation and Problem
 
 The traditional method of determining loan rates often relies on somewhat arbitrary factors, and it involves a lengthy process that necessitates the involvement of trained staff. While potentially suitable for conventional financial institutions such as commercial banks where thoroughness is prioritized over speed, this approach may not align well with the needs of Peer-to-Peer (P2P) lending platforms that value prompt service and efficiency. In the context of P2P platforms, which operate in a more dynamic and fast-paced environment, the traditional loan rate determination process can be seen as cumbersome and time-consuming.
 
