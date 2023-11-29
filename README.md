@@ -44,11 +44,11 @@ This approach has significant benefits compared to traditional methods. It can r
 
 From the data description section, we can see that there are two categorical variables, "Home" and "Employment length." To incorporate them into our regression model, we transform them into dummies. The 'Home' variable has three possible values: 'MORTGAGE,' 'OWN,' and 'RENT.'  To avoid multicollinearity, we only keep 'MORTGAGE' and 'RENT" in our dataset. Similarly, for 'Employment length,' we dropped 'emp_length_<1 year' for the same reason.
 
-## Exploring Data 
+## 1. Exploring Data 
 <details>
   <summary>Click to expand</summary>
 
-### Correlation Heatmap of the Variables.
+### 1.1 Correlation Heatmap of the Variables.
 
 ![Image](https://raw.githubusercontent.com/Joseph-Paleologus/Machine-Learning-LendingClub/main/Data%20description/image.png)
 From the map, we can observe that:
@@ -62,7 +62,7 @@ From the map, we can observe that:
 
 Other variables, such as Loan_amt (loan amount), Income_source_verified, and Open_acc (number of open credit lines), show very weak correlations with loan_rate, as indicated by coefficients close to 0.
 
-### Frequency Plot of FICO Score
+### 1.2 Frequency Plot of FICO Score
 
 ![Image](https://raw.githubusercontent.com/Joseph-Paleologus/Machine-Learning-LendingClub/main/Data%20description/FICO.png)
 The minimum FICO score for applicants who are granted the loans is 662, showing that there is a minimum FICO requirement for applicants to receive the loans.
@@ -73,7 +73,7 @@ As the FICO score increases, the frequency of individuals within those intervals
 
 The distribution appears to be right-skewed, meaning there is a longer tail towards the higher end of the FICO score spectrum. This skewness indicates that while most of the scores are concentrated on the lower end, there are still some individuals with very high credit scores, but they are less common.
 
-### Frequency Plot of Loan Amount
+### 1.3 Frequency Plot of Loan Amount
 
 ![Image](https://raw.githubusercontent.com/Joseph-Paleologus/Machine-Learning-LendingClub/main/Data%20description/Loan_amt.png)
 There is a relatively high frequency of loans in the lower loan amount ranges, starting from 0 up to around 15000. This suggests that most individuals in the dataset are taking out smaller loans.
@@ -86,7 +86,7 @@ The distribution may have multiple modes (peaks), as there seem to be several in
 
 Overall, the distribution of loan amounts in this dataset is multimodal and shows that smaller loans are more frequently taken out than larger ones, with particular loan amounts appearing to be more popular than others. 
 
-### Frequency Plot of Log Income
+### 1.4 Frequency Plot of Log Income
 
 Because the data has a long-tail effect, we log-transform it.
 ![Image](https://raw.githubusercontent.com/Joseph-Paleologus/Machine-Learning-LendingClub/main/Data%20description/log_inc.png)
@@ -96,7 +96,7 @@ The bars at the lower and higher ends of the spectrum have lower counts, suggest
 
 The shape of the distribution could be somewhat bell-shaped with a peak in the middle, indicating that the underlying income distribution, before the log transformation, is right-skewed, which is typical for income data where a large number of people earn moderate incomes and fewer people earn extremely high incomes.
 
-### Frequency Table of Categorical Variables
+### 1.5 Frequency Table of Categorical Variables
 ![Image](https://raw.githubusercontent.com/Joseph-Paleologus/Machine-Learning-LendingClub/main/Data%20description/categorical.png)
 1. Empolyment Length: Generally, the number of loan applicants shows a decreasing pattern as employment length increases. However, the data does not distinguish employment length after 10 years, so we can observe there is a large amount of applicants with 10+ years working experience.
 
