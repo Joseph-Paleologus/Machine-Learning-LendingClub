@@ -192,12 +192,14 @@ For PLS:
 
 Based on the two figures above, we can see that the optimal number of principal components for PCR is n=24, and the optimal number of principal components for PLS is n=6. We refitted both models with the selected number of components ‘n’ and used them to predict on the testing set. The resulting test MSE for PCR is 10.69176181204259, and the resulting test MSE for PLS is 10.693106578498861.
 
-</details>
-
 #### 3.1.3 Regularization
 Then, we run the Ridge Regression and Lasso Regression. To start with, we graph the change in the standardized regression coefficients with respect to -log⁡(λ) for both models, where λ is the tunning hyper-parameter. 
 
 Related codes can be found in the ‘Regularization (with Lasso & Ridge & Elastic Net)’ file in the "Parametric Model" folder of this project.
+
+</details>
+
+
 
 <details>
   <summary>Click to expand</summary>
