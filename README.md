@@ -232,7 +232,7 @@ Related codes can be found in the’ Non-parametric Model (KNN & Decision Tree)�
   <summary>Click to expand</summary>
 
 #### KNN Regression
-The first nonparametric model we implemented is KNN regression. We first chose the optimal number of neighbor ‘N’ (ranging from 5 to 200) through 5-fold cross-validation. In our case, N=148 was chosen. Then, we refitted the model using N=148 and predicted on the testing set. The resulting test MSE for KNN Regression is 17.71342393859.
+The first nonparametric model we implemented is KNN regression. We first standardized the training and testing feature sets, and then chose the optimal number of neighbor ‘N’ (ranging from 5 to 200) through 5-fold cross-validation. In our case, N=19 was chosen. Then, we refitted the model using N=19 and predicted on the testing set. The resulting test MSE for KNN Regression is 11.4571313245.
 
 #### Regression Tree (with/without pruning)
 
@@ -272,7 +272,7 @@ Linear Regression Based on PLS | 10.6931 | Number of principal components n=6, c
 Ridge Regression | 10.6991 | Value of tunning hyper-parameter λ=0.0081, chosen by cross-validation
 Lasso Regression | 10.6915 | Value of tunning hyper-parameter λ= 0.0179, chosen by cross-validation
 Elastic Net Regression | 10.6917 | Value of tunning hyper-parameters λ= 0.0199 and α=0.9, chosen by cross-validation
-KNN Regression | 17.7134 | number of neighbors N=148, chosen by cross-validation
+KNN Regression | 11.4571 | number of neighbors N=148, chosen by cross-validation
 Regression Tree (with pruning) | 11.2452 | Tunning parameter α=0.0288, chosen by cross-validation
 Bagging | 9.9029 | Number of Trees n_estimators=400, chosen by cross-validation.
 Random Forest | 9.6192 | Number of Trees n_estimators=500, chosen by cross-validation
