@@ -169,7 +169,8 @@ Gradient Boosting is a technique that builds models in a stage-wise fashion, sim
 In the following few paragraphs, we will describe the main results and thought processes associated with each one of these models. 
 
 ### 3.1 Parametric Models:
-Related codes can be found in the ‘Variable Selection, PCR & PLS’ file and the ‘Regularization (with Lasso & Ridge & Elastic Net)’ file in the "Parametric Model" folder of this project.
+
+Here are the results concerning the parametric models we implemented: 
 
 <details>
   <summary>Click to expand</summary>
@@ -222,8 +223,11 @@ A similar approach also works for the Elastic Net Regression. We first found the
 
 </details>
 
+*Note: Related codes can be found in the ‘Variable Selection, PCR & PLS’ file and the ‘Regularization (with Lasso & Ridge & Elastic Net)’ file in the "Parametric Model" folder of this project.*
+
 ### 3.2 Non-Parametric Models
-Related codes can be found in the’ Non-parametric Model (KNN & Decision Tree)’ file in the "Non-Parametric" folder of this project.
+
+Here are the results concerning the parametric models we implemented: 
 
 <details>
   <summary>Click to expand</summary>
@@ -256,6 +260,8 @@ Eventually, we implemented the Gradient Boosting Regression (GBR). For GBR, we s
 Based on the cross-validation, the optimal value of ‘max_depth’ is 5. Then, we refitted the GBR model using max_depth=5. Also, we lowered the learning rate to 0.01 when refitting, since a smaller learning rate will likely generate more accurate model predictions in our case. After refitting the GBR model and predicting the testing set, we obtained a test MSE of 9.4366903363. Because of the large sample size and a large number of features, it takes an extended amount of time to perform cross-validation and find the optimal configuration for parameters such as max depth and sample split. However, the boosted tree gave us the best model among other choices with the lowest test MSE.
 
 </details>
+
+*Note: Related codes can be found in the’ Non-parametric Model (KNN & Decision Tree)’ file in the "Non-Parametric" folder of this project.*
 
 ### 3.3 Summary Table of Test MSE of the Models
 
