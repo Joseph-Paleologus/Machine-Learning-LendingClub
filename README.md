@@ -196,6 +196,7 @@ Based on the two figures above, we can see that the optimal number of principal 
 
 ### Regularization
 Then, we run the Ridge Regression and Lasso Regression. To start with, we graph the change in the standardized regression coefficients with respect to -log⁡(λ) for both models, where λ is the tunning hyper-parameter. 
+
 Related codes can be found in the ‘Regularization (with Lasso & Ridge & Elastic Net)’ file in the "Parametric Model" folder of this project.
 
 <details>
@@ -218,8 +219,9 @@ For Lasso Regression:
 ![image](https://raw.githubusercontent.com/Joseph-Paleologus/Machine-Learning-LendingClub/main/Parametric%20Models/Lasso%202.png)
 
 The optimal λ for Ridge Regression chosen by cross-validation is λ = 0.0080967435201. The optimal λ for Lasso Regression chosen by cross-validation is λ = 0.0179450167158.
-	We refitted both models with the optimal λ and used them to predict the testing set. The resulting test MSE for Ridge Regression is 10.699063670936091, and the resulting test MSE for Lasso Regression is 10.691531404491021.
-	A similar approach also works for the Elastic Net Regression. We first found the tunning parameters λ and α using cross-validation, then refitted the model with the optimal λ and α, and finally used the model to predict on the testing set. The resulting parameters found using 5-fold cross-validation is λ= 0.01993890746208 and α=0.9 (α is selected from {0.1,0.2 ..., 0.9}). The test MSE of the fitted Elastic Net Regression model using the optimal λ and α is 10.6917359885709.
+We refitted both models with the optimal λ and used them to predict the testing set. The resulting test MSE for Ridge Regression is 10.699063670936091, and the resulting test MSE for Lasso Regression is 10.691531404491021.
+
+A similar approach also works for the Elastic Net Regression. We first found the tunning parameters λ and α using cross-validation, then refitted the model with the optimal λ and α, and finally used the model to predict on the testing set. The resulting parameters found using 5-fold cross-validation are λ= 0.01993890746208 and α=0.9 (α is selected from {0.1,0.2 ..., 0.9}). The test MSE of the fitted Elastic Net Regression model using the optimal λ and α is 10.6917359885709.
 
 </details>
 
@@ -238,7 +240,7 @@ Next, we proceeded to implement the regression tree model. To start with, we do 
 
 ![image](https://github.com/Joseph-Paleologus/Machine-Learning-LendingClub/blob/main/Non-Parametric/Unpruned%20Tree.png)
 
-	The resulting tree looks terrible as it keeps growing and ends up having many layers. This tree will undoubtedly overfit our data. The resulting test MSE based on this regression tree is 12.633312900342. 
+The resulting tree looks terrible as it keeps growing and ends up having many layers. This tree will undoubtedly overfit our data. The resulting test MSE based on this regression tree is 12.633312900342. 
 
 To prevent overfitting, we performed pruning on our tree. We started with using 5-fold cross-validation to find the optimal tuning parameter α. The optimal α we found is α= 0.0288556240014. Then we refitted the regression tree using the optimal tunning parameter α and predicted it on the testing set. The resulting test MSE becomes 11.24517409887, which is smaller than before. Following is the tree after pruning, which has fewer layers:
 
