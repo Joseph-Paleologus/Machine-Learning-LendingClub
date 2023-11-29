@@ -209,7 +209,7 @@ For Lasso Regression:
 
 As we can see, as λ increases (-log⁡(λ) decreases), the regression coefficients in both Ridge and Lasso Regression decrease. Lasso Regression can shrink the coefficients to 0, while Ridge Regression can shrink the coefficients to a small number, but not to 0.
 
-Next, we selected the tunning hyper-parameter λ in both models with 5-fold cross-validation. The validation MSE is graph with respect to -log⁡(λ):
+Next, we selected the tunning hyper-parameter λ in both models with 5-fold cross-validation. The validation MSE is graphed with respect to -log⁡(λ):
 
 For Ridge Regression:
 ![image](https://raw.githubusercontent.com/Joseph-Paleologus/Machine-Learning-LendingClub/main/Parametric%20Models/Ridge%202.png)
@@ -218,43 +218,43 @@ For Lasso Regression:
 ![image](https://raw.githubusercontent.com/Joseph-Paleologus/Machine-Learning-LendingClub/main/Parametric%20Models/Lasso%202.png)
 
 The optimal λ for Ridge Regression chosen by cross-validation is λ = 0.0080967435201. The optimal λ for Lasso Regression chosen by cross-validation is λ = 0.0179450167158.
-	We refitted both models with the optimal λ, and used them to predict on the testing set. The resulting test MSE for Ridge Regression is 10.699063670936091, and the resulting test MSE for Lasso Regression is 10.691531404491021.
-	The similar approach also works for the Elastic Net Regression. We first found the tunning parameters λ and α using cross-validation, then refitted the model with the optimal λ and α, and finally used the model to predict on the testing set. The resulting parameters found using 5-fold cross-validation is λ= 0.01993890746208 and α=0.9 (α is selected from {0.1,0.2 ..., 0.9}). The test MSE of the fitted Elastic Net Regression model using the optimal λ and α is 10.6917359885709.
+	We refitted both models with the optimal λ and used them to predict the testing set. The resulting test MSE for Ridge Regression is 10.699063670936091, and the resulting test MSE for Lasso Regression is 10.691531404491021.
+	A similar approach also works for the Elastic Net Regression. We first found the tunning parameters λ and α using cross-validation, then refitted the model with the optimal λ and α, and finally used the model to predict on the testing set. The resulting parameters found using 5-fold cross-validation is λ= 0.01993890746208 and α=0.9 (α is selected from {0.1,0.2 ..., 0.9}). The test MSE of the fitted Elastic Net Regression model using the optimal λ and α is 10.6917359885709.
 
 </details>
 
 ### Non-Parametric Models
-Related codes can be found in the’ Non-parametric Model (KNN & Decision Tree)’ file in the "Non-Parametric Model" folder of this project.
+Related codes can be found in the’ Non-parametric Model (KNN & Decision Tree)’ file in the "Non-Parametric" folder of this project.
 
 <details>
   <summary>Click to expand</summary>
 
 #### KNN Regression
-The first nonparametric model we implemented is KNN regression. We first chose the optimal number of neighbor ‘N’ (ranging from 5 to 200) through 5-fold cross-validation. In our case, N=148 was chosen. Then, we refitted the model using N=148 and predict on the testing set. The resulting test MSE for KNN Regression is 17.71342393859.
+The first nonparametric model we implemented is KNN regression. We first chose the optimal number of neighbor ‘N’ (ranging from 5 to 200) through 5-fold cross-validation. In our case, N=148 was chosen. Then, we refitted the model using N=148 and predicted on the testing set. The resulting test MSE for KNN Regression is 17.71342393859.
 
 #### Regression Tree (with/without pruning)
 
-Next, we proceeded to implementing the regression tree model. To start with, we do not place any restrictions to the tree, and fit the tree on the training data. Following is the plot for the tree:
+Next, we proceeded to implement the regression tree model. To start with, we do not place any restrictions on the tree, and fit the tree on the training data. Following is the plot for the tree:
 
 ![image](https://github.com/Joseph-Paleologus/Machine-Learning-LendingClub/blob/main/Non-Parametric/Unpruned%20Tree.png)
 
 	The resulting tree looks terrible as it keeps growing and ends up having many layers. This tree will undoubtedly overfit our data. The resulting test MSE based on this regression tree is 12.633312900342. 
 
-To prevent overfitting, we performed pruning on our tree. We started with using 5-fold cross-validation to find the optimal tunning parameter α. The optimal α we found is α= 0.0288556240014. Then we refitted the regression tree using the optimal tunning parameter α, and predict on the testing set. The resulting test MSE becomes 11.24517409887, which is smaller than before. Following is the tree after pruning, which has fewer layers:
+To prevent overfitting, we performed pruning on our tree. We started with using 5-fold cross-validation to find the optimal tuning parameter α. The optimal α we found is α= 0.0288556240014. Then we refitted the regression tree using the optimal tunning parameter α and predicted it on the testing set. The resulting test MSE becomes 11.24517409887, which is smaller than before. Following is the tree after pruning, which has fewer layers:
 
 ![image](https://github.com/Joseph-Paleologus/Machine-Learning-LendingClub/blob/main/Non-Parametric/Pruned%20Tree.png?raw=true)
 
 ### Bagging and Random Forest
 Then, we implemented Bagging and Random Forest. Notice that Bagging is simply a Random Forest that takes all features into consideration when constructing each tree. For both Bagging and Random Forest, we chose the number of trees ‘n_estimators’ from {100, 200, 300, 400} and {100, 200, 300, 400, 500} respectively through 5-fold cross-validation.  We only included a limited number of values for ‘n_estimators’ because the runtime for a larger number of `n_estimators` is extremely long. Also, for Random Forest, we followed the convention to take the square root of the number of available features as the parameter ‘max_feature’. Since we have 25 features in total, we chose max_feature=5, which means our Random Forest model will consider 5 features when constructing each tree. 
 
-The parameter ‘n_estimators’ chosen by cross-validation for Bagging and Random Forest are n_estimators = 400 and n_estimators = 500 respectively. After refitting Bagging and Random Forest with the selected values of `n_estimators` and predict on the testing set, the resulting test MSE we got for Bagging and Random Forest are 9.9029367190 and 9.61915126284 respectively. 
+The parameter ‘n_estimators’ chosen by cross-validation for Bagging and Random Forest are n_estimators = 400 and n_estimators = 500 respectively. After refitting Bagging and Random Forest with the selected values of `n_estimators` and predicting on the testing set, the resulting test MSE we got for Bagging and Random Forest are 9.9029367190 and 9.61915126284 respectively. 
 
 ### Gradient Boosting Regression
-Eventually, we implemented the Gradient Boosting Regression (GBR). For GBR, we started by choosing the parameter ‘max_depth’, the maximum depth allowed for the regression tree, through 5-fold cross-validation from integers ranging from 3 to 11. While doing the cross-validation, we selected a high learning rate (0.1) to save some time since there are many features and samples. Also, we a selected a larger number for ‘n_estimators’ (‘n_estimators’ =1000) because Gradient Boosting is relatively robust to over-fitting. Larger values for ‘n_estimators’ correspond to lower test MSE as demonstrated by our figure: 
+Eventually, we implemented the Gradient Boosting Regression (GBR). For GBR, we started by choosing the parameter ‘max_depth’, the maximum depth allowed for the regression tree, through 5-fold cross-validation from integers ranging from 3 to 11. While doing the cross-validation, we selected a high learning rate (0.1) to save some time since there are many features and samples. Also, we selected a larger number for ‘n_estimators’ (‘n_estimators’ =1000) because Gradient Boosting is relatively robust to over-fitting. Larger values for ‘n_estimators’ correspond to lower test MSE as demonstrated by our figure: 
 
 ![image](https://github.com/Joseph-Paleologus/Machine-Learning-LendingClub/blob/main/Non-Parametric/GBR.png?raw=true)
 
-Based on the cross-validation, the optimal value of ‘max_depth’ is 5. Then, we refitted the GBR model using max_depth=5. Also, we lowered the learning rate to 0.01 when refitting, since a smaller learning rate will likely generate more accurate model predictions in our case. After refitting GBR model and predict on the testing set, we obtained a test MSE of 9.4366903363. Because of the large sample size and large number of features, it takes an extended amount of time to perform cross-validation and find the optimal configuration for parameters such as max depth and sample-split. However, the boosted tree gave us the best model among other choices with the lowest test MSE.
+Based on the cross-validation, the optimal value of ‘max_depth’ is 5. Then, we refitted the GBR model using max_depth=5. Also, we lowered the learning rate to 0.01 when refitting, since a smaller learning rate will likely generate more accurate model predictions in our case. After refitting the GBR model and predicting the testing set, we obtained a test MSE of 9.4366903363. Because of the large sample size and a large number of features, it takes an extended amount of time to perform cross-validation and find the optimal configuration for parameters such as max depth and sample split. However, the boosted tree gave us the best model among other choices with the lowest test MSE.
 
 </details>
 
