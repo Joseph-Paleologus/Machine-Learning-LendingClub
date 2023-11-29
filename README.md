@@ -199,15 +199,6 @@ Based on the two figures above, we can see that the optimal number of principal 
 #### 3.1.3 Regularization
 Then, we run the Ridge Regression and Lasso Regression. To start with, we graph the change in the standardized regression coefficients with respect to -log⁡(λ) for both models, where λ is the tunning hyper-parameter. 
 
-Related codes can be found in the ‘Regularization (with Lasso & Ridge & Elastic Net)’ file in the "Parametric Model" folder of this project.
-
-</details>
-
-
-
-<details>
-  <summary>Click to expand</summary>
-  
 For Ridge Regression:
 ![image](https://raw.githubusercontent.com/Joseph-Paleologus/Machine-Learning-LendingClub/main/Parametric%20Models/Ridge%201.png)
 
@@ -228,6 +219,8 @@ The optimal λ for Ridge Regression chosen by cross-validation is λ = 0.0080967
 We refitted both models with the optimal λ and used them to predict the testing set. The resulting test MSE for Ridge Regression is 10.699063670936091, and the resulting test MSE for Lasso Regression is 10.691531404491021.
 
 A similar approach also works for the Elastic Net Regression. We first found the tunning parameters λ and α using cross-validation, then refitted the model with the optimal λ and α, and finally used the model to predict on the testing set. The resulting parameters found using 5-fold cross-validation are λ= 0.01993890746208 and α=0.9 (α is selected from {0.1,0.2 ..., 0.9}). The test MSE of the fitted Elastic Net Regression model using the optimal λ and α is 10.6917359885709.
+
+Related codes can be found in the ‘Regularization (with Lasso & Ridge & Elastic Net)’ file in the "Parametric Model" folder of this project.
 
 </details>
 
