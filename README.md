@@ -106,71 +106,71 @@ The shape of the distribution could be somewhat bell-shaped with a peak in the m
 
 </details>
 
-## Model Setups
+## 2. Model Setups
 
 All the codes in this project are executed under a Python 3.8+ environment. Our computing environment is a MacBook Pro 2021 with an M1 Max Chip and 32 GB of memory. Even though we are confident that less sophisticated computer systems could also run these codes, we expect them to take more than 30 minutes to go through all the codes.
 
-### Parametric Models
+### 2.1 Parametric Models
 Parametric models are the simplest and most intuitive way of modeling the loan rate. However, since some of the predictor variables show small correlations with the response, incorporating those predictors in our model will be problematic for an accurate, consistent prediction. Therefore, we introduce some methods for variable selection and dimensional reduction.
 <details>
   <summary>Click to expand</summary>
   
-#### Forward Selection
+#### 2.1.1 Forward Selection
 Forward Selection is a stepwise approach in model building where predictors are added one at a time to a regression model, starting with the variable most strongly associated with the response variable. At each step, the variable that provides the greatest additional improvement to the model fit is included until no more significant variables are found, or a specified criterion is met. For our dataset with many predictors, this method could be computationally more convenient than traditional subset selection methods. 
 
-#### Backward Selection
+#### 2.1.2 Backward Selection
 Backward Selection is also a stepwise approach in modeling where all potential predictors are initially included, and then the least significant variables are removed one by one. This process continues until only variables that contribute significantly to the model's predictive power remain, ensuring a more parsimonious and potentially more interpretable model.
 
-#### PCR
+#### 2.1.3 PCR
 PCR is useful for variable selection as it reduces the dimensionality of the data by selecting a few principal components, which are linear combinations of the original variables, thus simplifying the model without significantly losing information. It combines Principal Component Analysis (PCA) and regression and is useful for handling multicollinearity in regression models. 
 
-#### PLS
+#### 2.1.4 PLS
 Like Principal Component Regression (PCR), PLS reduces the dimensionality of data but focuses more on predicting a dependent variable by finding the multidimensional direction in the space of the independent variables that explains the maximum multidimensional variance of the dependent variable. It not only reduces the number of variables but also maintains the ones most relevant for predicting the dependent variable.
 </details>
 
-### Regularization
+### 2.2 Regularization
 To reduce the probability of overfitting, we introduce regularization methods:
 
 <details>
   <summary>Click to expand</summary>
   
-#### Ridge Regression
+#### 2.2.1 Ridge Regression
 Ridge regression is a technique used to analyze multiple regression data that suffer from overfitting. It reduces the standard error by adding a bias parameter in the estimates of the regression and shrinking large parameters to avoid overfitting issues.
 
-#### Lasso (Least Absolute Shrinkage and Selection Operator) Regression
+#### 2.2.2 Lasso (Least Absolute Shrinkage and Selection Operator) Regression
 Lasso regression is a type of linear regression that uses shrinkage: it applies a penalty to the absolute size of the regression coefficients. This method not only helps in variable selection by shrinking less important coefficients to zero but also improves the prediction accuracy and interpretability of the statistical model.
 
-#### Elastic Net
+#### 2.2.3 Elastic Net
 Elastic Net is a regularization technique in linear regression that combines the penalties of both Ridge and Lasso regression methods, helping to overcome the limitations of each when dealing with highly correlated variables or when selecting features. Its primary advantage over Ridge and Lasso is its ability to select groups of correlated variables, which Ridge can't do, and to maintain a more stable and accurate model than Lasso when dealing with numerous features or highly correlated predictors.
 
 </details>
 
-### Non-Parametric Model
+### 2.3 Non-Parametric Model
 The models listed so far, though variegated in their specific implementation, only capture linear relations between predictors and the response variable. However, we are not confident that the predictor variables have linear relationships with the response variable. If we want to catch non-linear relationship between those variables, we should also include some non-parametric methods:
 
 <details>
   <summary>Click to expand</summary>
   
-#### KNN (K-Nearest Neighbors)
+#### 2.3.1 KNN (K-Nearest Neighbors)
 The KNN method predicts the outcome for a new data point by analyzing the K closest data points (neighbors) from the training set. It's based on the principle that similar data points tend to have similar outcomes, making it a popular choice for its ease of understanding and implementation, especially in scenarios where relationships between variables are complex or unknown.
 
-#### Decision Tree, Random Forests, and Bagging
+#### 2.3.2 Decision Tree, Random Forests, and Bagging
 A Decision Tree is a flowchart-like tree structure where each internal node represents a test on an attribute, each branch represents the outcome of the test, and each leaf node represents a class label or regression value used for making predictions based on simple decision rules. Random Forests, on the other hand, is an ensemble learning method that operates by constructing multiple decision trees during training and outputting the class that is the mean prediction (regression) of the individual trees, offering improved accuracy and robustness over a single decision tree. Bagging is similar to Random Forests in that both methods use an ensemble of decision trees and bootstrap sampling, but Random Forest introduces additional randomness by selecting random subsets of features for splitting each node, whereas bagging uses all features.
 
-#### Gradient Boosting
+#### 2.3.3 Gradient Boosting
 Gradient Boosting is a technique that builds models in a stage-wise fashion, similar to the rationale of PLS and PCR. It combines the predictions of multiple decision trees to create a strong predictor, optimizing a loss function by iteratively adding new models that correct the errors of the previous ones, making it highly effective for complex datasets with non-linear relationships.
 </details>
  
-## Results
+## 3. Results
 In the following few paragraphs, we will describe the main results and thought processes associated with each one of these models. 
 
-### Parametric Models:
+### 3.1 Parametric Models:
 Related codes can be found in the ‘Variable Selection, PCR & PLS’ file in the "Parametric Model" folder of this project.
 
 <details>
   <summary>Click to expand</summary>
   
-#### Multiple Linear Regression with Forward/Backward Variable Selection:
+#### 3.1.1 Multiple Linear Regression with Forward/Backward Variable Selection:
 To start with, we performed the forward and backward variable selection based on the R-squared of the fitted linear regression. We graphed RSS, Adjusted R-squared, AIC, and BIC with respect to the number of predictors selected. The results for forward and backward selections are very similar:
 ![image](https://github.com/Joseph-Paleologus/Machine-Learning-LendingClub/assets/48620941/6335f002-1785-43d1-9097-dc7c5b21b5f5)
 
@@ -179,7 +179,7 @@ The red dot in each graph indicates the number of predictors that generate the l
 
 Then, we refitted the linear regression model with the 14 best predictors we selected and used it to predict the testing set. The resulting test MSE is 10.945027615948739.
 
-#### Linear Regression with PCR and PLS 
+#### 3.1.2 Linear Regression with PCR and PLS 
 Next, we ran the Principal Component Regression (PCR) and Partial Least Square Regression (PLS), both with the number of principal components (n) selected from 10-fold cross-validation. We graph the cross-validation MSE with respect to ‘n’.
 
 For PCR: 
@@ -194,7 +194,7 @@ Based on the two figures above, we can see that the optimal number of principal 
 
 </details>
 
-### Regularization
+#### 3.1.3 Regularization
 Then, we run the Ridge Regression and Lasso Regression. To start with, we graph the change in the standardized regression coefficients with respect to -log⁡(λ) for both models, where λ is the tunning hyper-parameter. 
 
 Related codes can be found in the ‘Regularization (with Lasso & Ridge & Elastic Net)’ file in the "Parametric Model" folder of this project.
@@ -225,16 +225,16 @@ A similar approach also works for the Elastic Net Regression. We first found the
 
 </details>
 
-### Non-Parametric Models
+### 3.2 Non-Parametric Models
 Related codes can be found in the’ Non-parametric Model (KNN & Decision Tree)’ file in the "Non-Parametric" folder of this project.
 
 <details>
   <summary>Click to expand</summary>
 
-#### KNN Regression
+#### 3.2.1 KNN Regression
 The first nonparametric model we implemented is KNN regression. We first standardized the training and testing feature sets, and then chose the optimal number of neighbor ‘N’ (ranging from 5 to 200) through 5-fold cross-validation. In our case, N=19 was chosen. Then, we refitted the model using N=19 and predicted on the testing set. The resulting test MSE for KNN Regression is 11.4571313245.
 
-#### Regression Tree (with/without pruning)
+#### 3.2.2 Regression Tree (with/without pruning)
 
 Next, we proceeded to implement the regression tree model. To start with, we do not place any restrictions on the tree, and fit the tree on the training data. Following is the plot for the tree:
 
@@ -246,12 +246,12 @@ To prevent overfitting, we performed pruning on our tree. We started with using 
 
 ![image](https://github.com/Joseph-Paleologus/Machine-Learning-LendingClub/blob/main/Non-Parametric/Pruned%20Tree.png?raw=true)
 
-### Bagging and Random Forest
+#### 3.2.3 Bagging and Random Forest
 Then, we implemented Bagging and Random Forest. Notice that Bagging is simply a Random Forest that takes all features into consideration when constructing each tree. For both Bagging and Random Forest, we chose the number of trees ‘n_estimators’ from {100, 200, 300, 400} and {100, 200, 300, 400, 500} respectively through 5-fold cross-validation.  We only included a limited number of values for ‘n_estimators’ because the runtime for a larger number of `n_estimators` is extremely long. Also, for Random Forest, we followed the convention to take the square root of the number of available features as the parameter ‘max_feature’. Since we have 25 features in total, we chose max_feature=5, which means our Random Forest model will consider 5 features when constructing each tree. 
 
 The parameter ‘n_estimators’ chosen by cross-validation for Bagging and Random Forest are n_estimators = 400 and n_estimators = 500 respectively. After refitting Bagging and Random Forest with the selected values of `n_estimators` and predicting on the testing set, the resulting test MSE we got for Bagging and Random Forest are 9.9029367190 and 9.61915126284 respectively. 
 
-### Gradient Boosting Regression
+#### 3.2.4 Gradient Boosting Regression
 Eventually, we implemented the Gradient Boosting Regression (GBR). For GBR, we started by choosing the parameter ‘max_depth’, the maximum depth allowed for the regression tree, through 5-fold cross-validation from integers ranging from 3 to 11. While doing the cross-validation, we selected a high learning rate (0.1) to save some time since there are many features and samples. Also, we selected a larger number for ‘n_estimators’ (‘n_estimators’ =1000) because Gradient Boosting is relatively robust to over-fitting. Larger values for ‘n_estimators’ correspond to lower test MSE as demonstrated by our figure: 
 
 ![image](https://github.com/Joseph-Paleologus/Machine-Learning-LendingClub/blob/main/Non-Parametric/GBR.png?raw=true)
@@ -260,9 +260,7 @@ Based on the cross-validation, the optimal value of ‘max_depth’ is 5. Then, 
 
 </details>
 
-## Result
-
-### Summary Table of Test MSE of the Models
+### 3.3 Summary Table of Test MSE of the Models
 
 Model | Test MSE | Parameters
 --- | --- | ---
@@ -278,7 +276,7 @@ Bagging | 9.9029 | Number of Trees n_estimators=400, chosen by cross-validation.
 Random Forest | 9.6192 | Number of Trees n_estimators=500, chosen by cross-validation
 Gradient Boost | 9.4367 | Maximum depth max_depth=5, chosen by cross-validation. Fixed n_estimators=1000 and learning_rate=0.01
 
-## Discussion
+## 4. Discussion
 
 Overall, from the table above, we can see the test MSE generated by different models fluctuate between 9 and 12. The random forest has the smallest test MSE (9.6192), and the KNN has the highest test MSE (11.4571). Given that the loan rate (our dependent variable) is provided in percentage scale (e.g. `15` in the data represents a loan rate of 15%) ranging from 6.03 to 26.06 with a mean of 13.83, the test MSE generated by our models is reasonable but not ideal. 
 
