@@ -47,6 +47,9 @@ From the data description section, we can see that there are two categorical var
 *Note: Related codes can be fpund in the in XXX file in the XXX folder of this project.*
 
 ## 1. Exploring Data 
+
+To start with, we explored our data with several visualizations:
+
 <details>
   <summary>Click to expand</summary>
 
