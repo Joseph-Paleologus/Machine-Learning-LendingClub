@@ -44,6 +44,8 @@ This approach has significant benefits compared to traditional methods. It can r
 
 From the data description section, we can see that there are two categorical variables, "Home" and "Employment length." To incorporate them into our regression model, we transform them into dummies. The 'Home' variable has three possible values: 'MORTGAGE,' 'OWN,' and 'RENT.'  To avoid multicollinearity, we only keep 'MORTGAGE' and 'RENT" in our dataset. Similarly, for 'Employment length,' we dropped 'emp_length_<1 year' for the same reason.
 
+*Note: Related codes can be found in the ‘Data_cleaning’ file in the "Parametric Model" folder of this project.*
+
 ## 1. Exploring Data 
 <details>
   <summary>Click to expand</summary>
