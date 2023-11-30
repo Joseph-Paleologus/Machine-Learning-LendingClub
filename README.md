@@ -115,7 +115,7 @@ The shape of the distribution could be somewhat bell-shaped with a peak in the m
 
 </details>
 
-*Note: Related codes can be found in the `visual` file in the "Data Description" folder of this project.*
+*Note: Related codes can be found in the 'visual' file in the "Data description" folder of this project.*
 
 ## 2. Model Setups
 
