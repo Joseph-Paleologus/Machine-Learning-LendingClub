@@ -44,7 +44,7 @@ This approach has significant benefits compared to traditional methods. It can r
 
 From the data description section, we can see that there are two categorical variables, "Home" and "Employment length." To incorporate them into our regression model, we transform them into dummies. The 'Home' variable has three possible values: 'MORTGAGE,' 'OWN,' and 'RENT.'  To avoid multicollinearity, we only keep 'MORTGAGE' and 'RENT" in our dataset. Similarly, for 'Employment length,' we dropped 'emp_length_<1 year' for the same reason.
 
-*Note: Related codes can be fpund in the in XXX file in the XXX folder of this project.*
+*Note: Related codes can be found in the in XXX file in the XXX folder of this project.*
 
 ## 1. Exploring Data 
 
@@ -115,7 +115,7 @@ The shape of the distribution could be somewhat bell-shaped with a peak in the m
 
 </details>
 
-*Note: Related codes can be found in the 'visual' file in the "Data description" folder of this project.*
+*Note: Related codes can be found in the ‘visual’ file in the "Data description" folder of this project.*
 
 ## 2. Model Setups
 
