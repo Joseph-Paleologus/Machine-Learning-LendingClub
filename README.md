@@ -270,7 +270,7 @@ Based on the cross-validation, the optimal value of ‘max_depth’ is 5. Then, 
 
 *Note: Related codes can be found in the’ Non-parametric Model (KNN & Decision Tree)’ file in the "Non-Parametric" folder of this project.*
 
-### 3.3 Summary Table of Test MSE of the Models
+### 3.3 Summary Table for the Models
 
 Model | Test MSE | Parameters
 --- | --- | ---
