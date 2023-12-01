@@ -10,6 +10,6 @@ Then, execute each cell in the notebook sequence from top to bottom. Cells are o
 
 Notes:
 
-Data: The dataset used for this analysis is assumed to be present in the same directory as the notebook. If the dataset is located somewhere else, could you update the file path accordingly?
+Data: The dataset used for this analysis is assumed to be present in the same directory as the notebook. If the dataset is located somewhere else, please update the directory accordingly.
 
 Random State: For reproducibility, ensure that a fixed random_state is set where applicable in model functions.
