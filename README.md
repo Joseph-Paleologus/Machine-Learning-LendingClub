@@ -114,9 +114,9 @@ The shape of the distribution could be somewhat bell-shaped with a peak in the m
 3. Income Source Verification and Income Verification: Those two graphs show that most applicants do not have their income source and income verified.
 
 ### 1.6 Frequency Table of Loan Rate
+![image](https://github.com/Joseph-Paleologus/Machine-Learning-LendingClub/blob/main/Data%20description/Loan%20Rate%20.png?raw=true)
 
-**IMAGE HERE**
-**Description here**
+The shape of the distribution of loan rates is similar to a normal distribution but slightly skews to the right. The most commonly issued loan rates fall in the interval between 12% and 15%. Most of the rates are in the range (10%, 20%), so, people are less inclined to have their loans issued at a higher or lower rate. Its right skewness indicates that there are relatively few loans with very high interest rates.
 
 </details>
 
@@ -264,9 +264,22 @@ Then, we implemented Bagging and Random Forest. Notice that Bagging is simply a 
 
 The parameter ‘n_estimators’ chosen by cross-validation for Bagging and Random Forest are n_estimators = 400 and n_estimators = 500 respectively. After refitting Bagging and Random Forest with the selected values of `n_estimators` and predicting on the testing set, the resulting test MSE we got for Bagging and Random Forest are 9.9029367190 and 9.61915126284 respectively. 
 
-We can also obtain the 10 most important features based on the Random Forest we built:
+We can also obtain the ten most important features based on the Random Forest we built:
 
-**IMAGE HERE**
+| Feature                | Importance |
+|------------------------|------------|
+| FICO                   | 0.167997   |
+| Loan_term              | 0.166786   |
+| Revol_util             | 0.091049   |
+| Loan_amt               | 0.082807   |
+| Debt_income            | 0.080158   |
+| Revol_balance          | 0.076693   |
+| Income_thou            | 0.075718   |
+| Credit_history_length  | 0.072571   |
+| open_acc               | 0.050332   |
+| Income_verified        | 0.022010   |
+
+
 
 #### 3.2.4 Gradient Boosting Regression
 Eventually, we implemented the Gradient Boosting Regression (GBR). For GBR, we started by choosing the parameter ‘max_depth’, the maximum depth allowed for the regression tree, through 5-fold cross-validation from integers ranging from 3 to 11. While doing the cross-validation, we selected a high learning rate (0.1) to save some time since there are many features and samples. Also, we selected a larger number for ‘n_estimators’ (‘n_estimators’ =1000) because Gradient Boosting is relatively robust to over-fitting. Larger values for ‘n_estimators’ correspond to lower test MSE as demonstrated by our figure: 
@@ -276,8 +289,19 @@ Eventually, we implemented the Gradient Boosting Regression (GBR). For GBR, we s
 Based on the cross-validation, the optimal value of ‘max_depth’ is 5. Then, we refitted the GBR model using max_depth=5. Also, we lowered the learning rate to 0.01 when refitting, since a smaller learning rate will likely generate more accurate model predictions in our case. After refitting the GBR model and predicting the testing set, we obtained a test MSE of 9.4366903363. Because of the large sample size and a large number of features, it takes an extended amount of time to perform cross-validation and find the optimal configuration for parameters such as max depth and sample split. However, the boosted tree gave us the best model among other choices with the lowest test MSE.
 
 We can also obtain the 10 most important features based on the GBR model we built:
+| Feature                 | Importance |
+|-------------------------|------------|
+| Loan_term               | 0.320960   |
+| FICO                    | 0.299793   |
+| Loan_amt                | 0.080674   |
+| Revol_balance           | 0.055333   |
+| Income_thou             | 0.051159   |
+| Debt_income             | 0.049215   |
+| Credit_history_length   | 0.036227   |
+| Revol_util              | 0.035752   |
+| Income_verified         | 0.026139   |
+| open_acc                | 0.015096   |
 
-**IMAGE HERE**
 
 </details>
 
@@ -287,7 +311,7 @@ We can also obtain the 10 most important features based on the GBR model we buil
 
 Following is a table of summary for the test MSE, test RMSE, and parameters of each model:
 
-**Update the table**
+
 Model | Test MSE | Test RMSE |Parameters
 --- | --- |    --- | ---
 Multiple Linear Regression with Forward/Backward Variable Selection | 10.9450 | 3.31 | Number of predictors n=14, chosen based on BIC
@@ -304,49 +328,49 @@ Gradient Boost | 9.4367 | 3.07 | Maximum depth max_depth=5, chosen by cross-vali
 
 ## 4. Discussion
 
-Having provided all the model results we gained, we proceed to make some diagnosis and reflections upon our results. The reflections will be divided into two parts: overall diagnosis and model-specific diagnosis.  
+Having provided all the model results we gained, we proceeded to make some diagnoses and reflect upon our results. The reflections will be divided into two parts: overall diagnosis and model-specific diagnosis.  
 
 ### 4.1 Overall Diagnosis
 
-Overall, the test MSE generated by different models fluctuate between 9 and 12. Also, the test root mean square error (RMSE) generated by different models flunctuate between 3.07 and 3.38. Given that the loan rate (our dependent variable) is provided in percentage scale (e.g. `15` in the data represents a loan rate of 15%) ranging from 6.03 to 26.06 with a mean of 13.83, the overall test RMSE generated by our models is reasonably large. RMSE has the same scale as our target variable (loan rate), so an RMSE of 3.07 given by the GBR model, for instance, would imply that the model produced an average prediction error of 3.07% in comparison with the actual loan rates (with extra weight added to larger prediction errors).
+Overall, the test MSE generated by different models fluctuates between 9 and 12. Also, the test root mean square error (RMSE) caused by different models fluctuate between 3.07 and 3.38. Given that the loan rate (our dependent variable) is provided in percentage scale (e.g., `15` in the data represents a loan rate of 15%) ranging from 6.03 to 26.06 with a mean of 13.83, the overall test RMSE generated by our models is reasonably large. RMSE has the same scale as our target variable (loan rate), so an RMSE of 3.07 given by the GBR model, for instance, would imply that the model produced an average prediction error of 3.07% in comparison with the actual loan rates (with extra weight added to more significant prediction errors).
 
-Following are a series of general diagnosis concerning our data, models, and approaches:
+Following are a series of general diagnoses concerning our data, models, and approaches:
 
 <details>
   <summary>Click to expand</summary>
 
-1.	The data itself might be very noisy, since the loan rates for individuals provided in the data were determined subjectively by Lending Club. 
-2.	The incomes and income sources of more than half of the individuals in the data have not been verified, so the income data might contain errors. This might greatly influence the accuracy of our predictions since income is an important factor in determining the loan rates.
+1.	The data itself might be very noisy since the loan rates for individuals provided in the data were determined subjectively by Lending Club. 
+2.	The incomes and income sources of more than half of the individuals in the data have yet to be verified, so the income data might contain errors. This might significantly influence the accuracy of our predictions since income is an essential factor in determining the loan rates.
 3.	We did not take any actions to control for problems associated with multicollinearity, endogeneity, or heteroskedasticity when we ran models based on linear regression.
-4.	There might have been other important variables highly correlated with the loan rate received by an individual that are omitted. 
+4.	There might have been other important variables highly correlated with the loan rate received by an individual that is omitted. 
 
-A potential way to improve the overall performance of the models is to change the target variable from the loan rate to the probability of default, and then find a function that maps an individual’s probability of default and the loss given default to the ultimate loan rate. The logistic behind such an improvement is that the data for loan rates in our data has been determined subjectively by lending club, therefore using them directly for training and testing our models might introduce too much noise. The probability of default, however, is much more objective in nature since whether a given individual default is an outcome that can be directly observed. Therefore, the probability of default might be a more suitable target variable for our experiment, though the function that maps an individual’s probability of default and the loss given default to the loan rate can be very difficult to find. 
+A potential way to improve the overall performance of the models is to change the target variable from the loan rate to the probability of default, and then find a function that maps an individual’s likelihood of default and the loss given default to the ultimate loan rate. The logistic behind such an improvement is that the data for loan rates in our data has been determined subjectively by lending club, therefore using them directly for training and testing our models might introduce too much noise. The probability of default, however, is much more objective since whether a given individual default is an outcome that can be directly observed. Therefore, the probability of default might be a more suitable target variable for our experiment. However, the function that maps an individual’s likelihood of default and the loss given default to the loan rate can be complicated to find. 
 
 </details>
 
-### 4.2 Model Specific Diagnosis
+### 4.2 Model-Specific Diagnosis
 
-For some of the models, we provide a brief diagnosis and some suggestions for improvements if applicable.
+For some models, we provide a brief diagnosis and some suggestions for improvements if applicable.
 
 <details>
   <summary>Click to expand</summary>
   
 #### 4.2.1 Linear Regression with PCR and PLS 
 
-Based on the results, the test MSE generated by PLS is slightly larger than the test MSE generated by PCR. This is very unexpected. Since PCR derives the components only based on predictors and ignores the target variable in our training set, we naturally expect it to perform worse than PLS. The fact that PLS performs worse than PCR in our case suggests that the overfitting problem is serious for the PLS. To prevent overfitting problem, further regularization techniques maybe needed.
+Based on the results, the test MSE generated by PLS is slightly larger than the test MSE generated by PCR. This is very unexpected. Since PCR derives the components only based on predictors and ignores the target variable in our training set, we naturally expect it to perform worse than PLS. PLS performs worse than PCR in our case, suggesting that the overfitting problem is serious for the PLS. To prevent overfitting problems, further regularization techniques may be needed.
 
 #### 4.2.2 KNN Regression
 
-KNN produced a test MSE of 11.457, which is the highest among the test MSE generated by all models. One potential way to improve the testing results associated with KNN is to assign non-uniform weights for different data points. For instance, we can weight points in a way such that nearby points contribute more to the regression than faraway points to reduce noise and redundancy in the data.
+KNN produced a test MSE of 11.457, the highest among the test MSE generated by all models. One potential way to improve the testing results associated with KNN is to assign non-uniform weights for different data points. For instance, we can weight points so that nearby points contribute more to the regression than faraway points to reduce noise and redundancy in the data.
 
 #### 4.2.3	Bagging, Random Forest, and Gradient Boosting Regression
 
-These three tree-based models have a common disadvantage: they all take many parameters, such as the maximum depth `max_depth`, the number of trees `n_estimators`, and the number of features considered at each split `max_feature`, which makes cross-validation very time consuming. Take the Boosting Regression as an example. To train a model with the best predictive ability, we should perform cross-validation to find `max_depth`, `n_estimators`, `max_feature`, and `learning_rate` simultaneously as an optimal combination of parameters. However, doing so is extremely time consuming. Therefore, in our model, we only cross-validated the parameter `max_depth` while leaving the other fixed. Given sufficient computing power, cross-validation should be performed on the combination of different parameters simultaneously to obtain a tree-based model with better prediction accuracy.
+These three tree-based models have a common disadvantage: they all take many parameters, such as the maximum depth `max_depth`, the number of trees `n_estimators`, and the number of features considered at each split `max_feature`, which makes cross-validation very time consuming. Could you take the Boosting Regression as an example? To train a model with vital predictive ability, we should simultaneously perform cross-validation to find `max_depth,` `n_estimators,` `max_feature,` and `learning_rate` as an optimal combination of parameters. However, doing so is highly time-consuming. Therefore, in our model, we only cross-validated the parameter `max_depth` while leaving the other fixed. Given sufficient computing power, cross-validation should be performed on combining different parameters simultaneously to obtain a tree-based model with better prediction accuracy.
 
 </details>
 
 ## 5. Conclusion
 
-In this project, we implemented multiple machine learning models, including PCR, PLS, KNN, Ridge Regression, Lasso Regression, Elastic-Net Regression, Regression Tree with pruning, Random Forest, Bagging, and Gradiant Boost to predict the loan interest rate based on predictors in the Lending Club dataset. For each of the model, we calculated the test MSE and RMSE as the indicators for reliability, and found that Random Forest and Gradient Boost are able to produce the smallest test MSE. Such a result suggest that tree-based models are ideal candidates for determining loan rate for individuals and firms. However, given that the data itself is noisy, the samllest test RMSE we are able to obtain, which is given by the Gradient Boost model, is 3.07. A test RMSE of 3.07 suggests that there's space for further improvements in our approach. Still, our model is able to provide meaningful insights that help determine the loan rate for an individual based on limited information, and therefore can potentially assist banks and financial institutions in determining the loan rates for individuals and firms. 
+In this project, we implemented multiple machine learning models, including PCR, PLS, KNN, Ridge Regression, Lasso Regression, Elastic-Net Regression, Regression Trees with pruning, Random Forest, Bagging, and Gradient Boost to predict the loan interest rate based on predictors in the Lending Club dataset. For each model, we calculated the test MSE and RMSE as the indicators for reliability and found that Random Forest and Gradient Boost can produce the most minor test MSE. Such a result suggests that tree-based models are ideal candidates for determining loan rates for individuals and firms. However, given that the data is noisy, the smallest test RMSE we can obtain, which the Gradient Boost model gives, is 3.07. A test RMSE of 3.07 suggests space for further improvements in our approach. Still, our model can provide meaningful insights that help determine the loan rate for an individual based on limited information and, therefore, can potentially assist banks and financial institutions in determining the loan rates for individuals and firms. 
 
-To improve the overall prediction accuracy, more related variables beyond the existing ones should be included in our data to alleviate omitted variable bias. Also, as we mentioned in 4.1, a potnetial way improve our results is to change the target variable from the loan rate to the probability of default, and then find a function that maps the probability of default and loss given default to the ultimate loan rate. Comparing to directly predicting loan rate, this approach can help avoid the influence from subjectivity associated with the pre-determined loan rates in our data, and for readers who attempt to replicate and improve our project, we highly recommend trying this approach. 
+To improve the overall prediction accuracy, more related variables beyond the existing ones should be included in our data to alleviate omitted variable bias. Also, as mentioned in 4.1, a potential way to improve our results is to change the target variable from the loan rate to the probability of default and then find a function that maps the probability of default and loss given default to the ultimate loan rate. Compared to directly predicting loan rates, this approach can help avoid the influence of subjectivity associated with the pre-determined loan rates in our data. We highly recommend this approach for readers who attempt to replicate and improve our project. 
