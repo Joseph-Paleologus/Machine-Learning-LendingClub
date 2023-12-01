@@ -290,7 +290,7 @@ Following is a table of summary for the test MSE, test RMSE, and parameters of e
 **Update the table**
 Model | Test MSE | Test RMSE |Parameters
 --- | --- | --- | ---
-Multiple Linear Regression with Forward/Backward Variable Selection | 10.9450 | 3.31 | Number of predictors n=14, chosen based on BIC
+Multiple Linear Regression with Forward/Backward Variable Selection | 10.9450 |  3.31 | Number of predictors n=14, chosen based on BIC
 Linear Regression Based on PCR | 10.6918 | 3.23 | Number of principal components n=24, chosen by cross-validation
 Linear Regression Based on PLS | 10.6931 | 3.27 | Number of principal components n=6, chosen by cross-validation
 Ridge Regression | 10.6991 | 3.27 | Value of tunning hyper-parameter λ=0.0081, chosen by cross-validation
