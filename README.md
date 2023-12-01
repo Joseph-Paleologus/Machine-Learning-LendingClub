@@ -233,9 +233,11 @@ We refitted both models with the optimal λ and used them to predict the testing
 
 A similar approach also works for the Elastic Net Regression. We first found the tunning parameters λ and α using cross-validation, then refitted the model with the optimal λ and α, and finally used the model to predict on the testing set. The resulting parameters found using 5-fold cross-validation are λ= 0.01993890746208 and α=0.9 (α is selected from {0.1,0.2 ..., 0.9}). The test MSE of the fitted Elastic Net Regression model using the optimal λ and α is 10.6917359885709.
 
-</details>
 
 *Note: Related codes can be found in the ‘Variable Selection, PCR & PLS’ file and the ‘Regularization (with Lasso & Ridge & Elastic Net)’ file in the "Parametric Model" folder of this project.*
+
+</details>
+
 
 ### 3.2 Non-Parametric Models
 
@@ -255,7 +257,7 @@ Next, we proceeded to implement the regression tree model. To start with, we do 
 
 The resulting tree looks terrible as it keeps growing and ends up having many layers. This tree will undoubtedly overfit our data. The resulting test MSE based on this regression tree is 12.633312900342. 
 
-To prevent overfitting, we performed pruning on our tree. We started with using 5-fold cross-validation to find the optimal tuning parameter α. The optimal α we found is α= 0.0288556240014. Then we refitted the regression tree using the optimal tunning parameter α and predicted it on the testing set. The resulting test MSE becomes 11.24517409887, which is smaller than before. Following is the tree after pruning, which has fewer layers:
+To prevent overfitting, we pruned our tree. We started with using 5-fold cross-validation to find the optimal tuning parameter α. The optimal α we found is α= 0.0288556240014. Then we refitted the regression tree using the optimal tunning parameter α and predicted it on the testing set. The resulting test MSE becomes 11.24517409887, which is smaller than before. Following is the tree after pruning, which has fewer layers:
 
 ![image](https://github.com/Joseph-Paleologus/Machine-Learning-LendingClub/blob/main/Non-Parametric/Pruned%20Tree.png?raw=true)
 
