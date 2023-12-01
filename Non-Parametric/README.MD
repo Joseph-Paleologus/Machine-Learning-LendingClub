@@ -8,6 +8,8 @@ First, import the dataset "Lending Club.xlsx" from the "Data Description" folder
 
 Then, execute each cell in the notebook sequence from top to bottom. Cells are organized to flow from data importation, preprocessing, model training, and visualization. Each cell has detailed comments to supplement understanding.
 
-** Important Notes **
+Notes:
+
 Data: The dataset used for this analysis is assumed to be present in the same directory as the notebook. If the dataset is located somewhere else, could you update the file path accordingly?
+
 Random State: For reproducibility, ensure that a fixed random_state is set where applicable in model functions.
