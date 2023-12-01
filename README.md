@@ -288,19 +288,19 @@ We can also obtain the 10 most important features based on the GBR model we buil
 Following is a table of summary for the test MSE, test RMSE, and parameters of each model:
 
 **Update the table**
-Model | Test MSE | Parameters
---- | --- | ---
-Multiple Linear Regression with Forward Variable Selection | 10.9450 | Number of predictors n=14, chosen based on BIC
-Linear Regression Based on PCR | 10.6918 | Number of principal components n=24, chosen by cross-validation
-Linear Regression Based on PLS | 10.6931 | Number of principal components n=6, chosen by cross-validation
-Ridge Regression | 10.6991 | Value of tunning hyper-parameter λ=0.0081, chosen by cross-validation
-Lasso Regression | 10.6915 | Value of tunning hyper-parameter λ= 0.0179, chosen by cross-validation
-Elastic Net Regression | 10.6917 | Value of tunning hyper-parameters λ= 0.0199 and α=0.9, chosen by cross-validation
-KNN Regression | 11.4571 | number of neighbors N=148, chosen by cross-validation
-Regression Tree (with pruning) | 11.2452 | Tunning parameter α=0.0288, chosen by cross-validation
-Bagging | 9.9029 | Number of Trees n_estimators=400, chosen by cross-validation.
-Random Forest | 9.6192 | Number of Trees n_estimators=500, chosen by cross-validation
-Gradient Boost | 9.4367 | Maximum depth max_depth=5, chosen by cross-validation. Fixed n_estimators=1000 and learning_rate=0.01
+Model | Test MSE | Test RMSE |Parameters
+--- | --- | --- | ---
+Multiple Linear Regression with Forward/Backward Variable Selection | 10.9450 | 3.31 | Number of predictors n=14, chosen based on BIC
+Linear Regression Based on PCR | 10.6918 | 3.23 | Number of principal components n=24, chosen by cross-validation
+Linear Regression Based on PLS | 10.6931 | 3.27 | Number of principal components n=6, chosen by cross-validation
+Ridge Regression | 10.6991 | 3.27 | Value of tunning hyper-parameter λ=0.0081, chosen by cross-validation
+Lasso Regression | 10.6915 | 3.27 | Value of tunning hyper-parameter λ= 0.0179, chosen by cross-validation
+Elastic Net Regression | 10.6917 | 3.27 | Value of tunning hyper-parameters λ= 0.0199 and α=0.9, chosen by cross-validation
+KNN Regression | 11.4571 | 3.38 | Number of neighbors N=148, chosen by cross-validation
+Regression Tree (with pruning) | 11.2452 | 3.35 | Tunning parameter α=0.0288, chosen by cross-validation
+Bagging | 9.9029 | 3.15 | Number of Trees n_estimators=400, chosen by cross-validation.
+Random Forest | 9.6192 | 3.10 | Number of Trees n_estimators=500, chosen by cross-validation
+Gradient Boost | 9.4367 | 3.07 | Maximum depth max_depth=5, chosen by cross-validation. Fixed n_estimators=1000 and learning_rate=0.01
 
 ## 4. Discussion
 
