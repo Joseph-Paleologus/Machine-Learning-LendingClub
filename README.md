@@ -6,7 +6,7 @@ Our primary research objective is to use the LendingClub dataset to develop a pr
 
 ![Image](https://miro.medium.com/v2/resize:fit:1176/format:webp/1*5o6x9IUFI4U7j0EeZuUraA.png)
 
-* **Remark:** This is a Final Project for the course QTM 347 "Machine Learning" offered by Emory University. The contributors to this project are Ruichen Ni, Alex Ng, Haoyang Cui, and Mo Zhou. The instructor of this project is Dr. Ruoxuan Xiong at the Quantitative Sciences Department of Emory University.*
+**Remark:**  *This is a Final Project for the course QTM 347 "Machine Learning" offered by Emory University. The contributors to this project are Ruichen Ni, Alex Ng, Haoyang Cui, and Mo Zhou. The instructor of this project is Dr. Ruoxuan Xiong at the Quantitative Sciences Department of Emory University.*
 
 ## Data Description
 
