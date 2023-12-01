@@ -1,0 +1,2 @@
+This folder contains codes (in Variable Selection, PCR & PLS.ipynb) to implement parametric regression models, such as PCR, PLS, variable selection, etc. and codes to implement regularization measures (in Regularization (with Lasso & Ridge).
+                                                                                                                                                                                                           
