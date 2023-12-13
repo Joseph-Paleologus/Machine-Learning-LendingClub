@@ -384,3 +384,4 @@ Andersen, J. (2017, September 8). Predicting lending rates: An intro to AWS mach
 
 Liu, Y., Yang, M., Wang, Y., Li, Y., Xiong, T., & Li, A. (2021). Applying machine learning algorithms to predict default probability in the online credit market: Evidence from China. International Review of Financial Analysis, 79, 101971. https://doi.org/10.1016/j.irfa.2021.101971 
 
+Zhu, X., Chu, Q., Hu, P., Lu, P. (2023, May 5). Explainable prediction of loan default based on machine learning models. Data Science and Management. https://www.sciencedirect.com/science/article/pii/S2666764923000218 
