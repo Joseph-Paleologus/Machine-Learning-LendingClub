@@ -323,7 +323,7 @@ Ridge Regression | 10.6991 | 3.27 | Value of tunning hyper-parameter λ=0.0081, 
 Lasso Regression | 10.6915 | 3.27 | Value of tunning hyper-parameter λ=0.0179, chosen by cross-validation
 Elastic Net Regression | 10.6917 | 3.27 | Value of tunning hyper-parameters λ=0.0199 and α=0.9, chosen by cross-validation
 KNN Regression | 11.4571 | 3.38 | Number of neighbors N=148, chosen by cross-validation
-Regression Tree (with pruning) | 11.2452 | 3.35 | Tunning parameter α=0.0288, chosen by cross-validation
+// Regression Tree (with pruning) | 11.2452 | 3.35 | Tunning parameter α=0.0288, chosen by cross-validation
 Bagging | 9.9029 | 3.15 | Number of Trees n_estimators=400, chosen by cross-validation.
 Random Forest | 9.6192 | 3.10 | Number of Trees n_estimators=500, chosen by cross-validation
 Gradient Boost | 9.4367 | 3.07 | Maximum depth max_depth=5, chosen by cross-validation. Fixed n_estimators=1000 and learning_rate=0.01
